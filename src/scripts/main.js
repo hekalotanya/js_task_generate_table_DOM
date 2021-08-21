@@ -5,36 +5,31 @@ const people = require('./lib/people');
 
 const board = document.querySelector('.dashboard');
 
-for (const i of people) {
+for (const person of people) {
   const row = document.createElement('tr');
-  const name = document.createElement('th');
+  const name = document.createElement('td');
 
-  name.textContent = i.name;
-  row.append(name);
+  name.textContent = person.name;
 
-  const gender = document.createElement('th');
+  const gender = document.createElement('td');
 
-  gender.textContent = i.sex;
-  row.append(gender);
+  gender.textContent = person.sex;
 
-  const born = document.createElement('th');
+  const born = document.createElement('td');
 
-  born.textContent = i.born;
-  row.append(born);
+  born.textContent = person.born;
 
-  const died = document.createElement('th');
+  const died = document.createElement('td');
 
-  died.textContent = i.died;
-  row.append(died);
+  died.textContent = person.died;
 
-  const age = document.createElement('th');
+  const age = document.createElement('td');
 
-  age.textContent = i.died - i.born;
-  row.append(age);
+  age.textContent = person.died - person.born;
 
-  const century = document.createElement('th');
+  const century = document.createElement('td');
 
-  century.textContent = Math.ceil(i.died / 100);
-  row.append(century);
+  century.textContent = Math.ceil(person.died / 100);
+  row.append(name, gender, born, died, age, century);
   board.append(row);
 }
